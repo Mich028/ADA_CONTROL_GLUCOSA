@@ -1,0 +1,144 @@
+package ADAGLUCOSA;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JToolBar;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class GUI extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUI frame = new GUI();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public GUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 413, 277);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel Titulo = new JLabel("Controlador de glucosa");
+		Titulo.setHorizontalAlignment(SwingConstants.CENTER);
+		Titulo.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
+		Titulo.setBounds(128, 30, 164, 24);
+		contentPane.add(Titulo);
+		
+		JLabel lblNombre = new JLabel("Nombre:");
+		lblNombre.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNombre.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
+		lblNombre.setBounds(10, 55, 164, 24);
+		contentPane.add(lblNombre);
+		
+		JLabel lblValor = new JLabel("Valor:");
+		lblValor.setHorizontalAlignment(SwingConstants.LEFT);
+		lblValor.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
+		lblValor.setBounds(10, 90, 164, 24);
+		contentPane.add(lblValor);
+		
+		JLabel lblFecha = new JLabel("Dia:");
+		lblFecha.setHorizontalAlignment(SwingConstants.LEFT);
+		lblFecha.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
+		lblFecha.setBounds(10, 137, 56, 24);
+		contentPane.add(lblFecha);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(88, 59, 235, 20);
+		contentPane.add(textField);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(88, 93, 235, 20);
+		contentPane.add(textField_1);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"}));
+		comboBox.setMaximumRowCount(30);
+		comboBox.setBounds(53, 139, 56, 22);
+		contentPane.add(comboBox);
+		
+		JLabel lblMes = new JLabel("Mes:");
+		lblMes.setHorizontalAlignment(SwingConstants.LEFT);
+		lblMes.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
+		lblMes.setBounds(137, 137, 56, 24);
+		contentPane.add(lblMes);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"}));
+		comboBox_1.setMaximumRowCount(12);
+		comboBox_1.setBounds(173, 139, 96, 22);
+		contentPane.add(comboBox_1);
+		
+		JLabel lblAo = new JLabel("Año:");
+		lblAo.setHorizontalAlignment(SwingConstants.LEFT);
+		lblAo.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
+		lblAo.setBounds(290, 137, 56, 24);
+		contentPane.add(lblAo);
+		
+		JComboBox comboBox_1_1 = new JComboBox();
+		comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] {"2026", "2027", "2028", "2029", "2030"}));
+		comboBox_1_1.setMaximumRowCount(5);
+		comboBox_1_1.setBounds(327, 139, 56, 22);
+		contentPane.add(comboBox_1_1);
+		
+		JButton btnNewButton = new JButton("Registrar");
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\miche\\Downloads\\registrar.png"));
+		btnNewButton.setBounds(128, 193, 154, 22);
+		contentPane.add(btnNewButton);
+		
+		JToolBar toolBar = new JToolBar();
+		toolBar.setBounds(0, 0, 198, 35);
+		contentPane.add(toolBar);
+		
+		JButton btnNewButton_1 = new JButton("Historial");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\miche\\Downloads\\hia.png"));
+		toolBar.add(btnNewButton_1);
+		
+		JButton btnNewButton_1_1 = new JButton("Busqueda");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1_1.setIcon(new ImageIcon("C:\\Users\\miche\\Downloads\\Busqueda.png"));
+		toolBar.add(btnNewButton_1_1);
+
+	}
+}
