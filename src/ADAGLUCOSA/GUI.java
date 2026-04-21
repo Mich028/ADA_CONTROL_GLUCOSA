@@ -15,10 +15,13 @@ import javax.swing.JButton;
 import javax.swing.JToolBar;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.awt.event.ActionEvent;
 
 public class GUI extends JFrame {
-
+	
+	private HashMap<String, Persona> personas = new HashMap<>();
+	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
@@ -116,6 +119,10 @@ public class GUI extends JFrame {
 		contentPane.add(comboBox_1_1);
 		
 		JButton btnNewButton = new JButton("Registrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton.setIcon(new ImageIcon("C:\\Users\\miche\\Downloads\\registrar.png"));
 		btnNewButton.setBounds(128, 193, 154, 22);
 		contentPane.add(btnNewButton);
