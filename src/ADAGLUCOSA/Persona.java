@@ -14,4 +14,29 @@ public class Persona {
 	public void AgregarRegistro (Registro Registro) {
 		Registros.add(Registro);
 	}
+	/**
+	 * @return the nombre
+	 */
+	public String getNombre() {
+		return Nombre;
+	}
+	/**
+	 * @param nombre the nombre to set
+	 */
+	public void setNombre(String nombre) {
+		Nombre = nombre;
+	}
+	/**
+	 * @return the registros
+	 */
+	public ArrayList<Registro> getRegistros() {
+		return Registros;
+	}
+	/**
+	 * @param registros the registros to set
+	 */
+	public void setRegistros(ArrayList<Registro> registros) {
+		Registros = registros;
+	}
+	
 }
