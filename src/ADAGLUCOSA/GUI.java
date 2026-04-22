@@ -205,4 +205,28 @@ public class GUI extends JFrame {
 		toolBar.add(btnNewButton_1_1);
 
 	}
+	private void mostrarHistorialCompleto() {
+	    modeloLista.clear();
+	    if (personas.isEmpty()) {
+	        modeloLista.addElement("No hay registros de glucosa");
+	        modeloLista.addElement("Use el formulario para agregar mediciones");
+	        return;
+	    }
+	    modeloLista.addElement(" HISTORIAL DE GLUCOSA FAMILIAR");
+	  
+	    modeloLista.addElement("");
+	    for (Persona p : personas.values()) {
+	        modeloLista.addElement("" + p.getNombre().toUpperCase());
+	        if (p.getRegistros().isEmpty()) {
+	            modeloLista.addElement(" Sin registros");
+	        } else {
+	            int contador = 1;
+	            for (Registro rg : p.getRegistro()) {
+	                modeloLista.addElement(String.format("   %2d. %s", contador, rg.toString()));
+	                contador++;
+	            }
+	        }
+	        modeloLista.addElement("");
+	    }
+	}
 }
