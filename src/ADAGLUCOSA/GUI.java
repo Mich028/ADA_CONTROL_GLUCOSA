@@ -4,8 +4,10 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
@@ -13,6 +15,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JToolBar;
 import javax.swing.ImageIcon;
@@ -29,6 +32,8 @@ public class GUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	private DefaultListModel<String> modeloLista;private JList<String> listaHistorial;
+	
 	
 	private int convertirMes(String mes) {
         switch (mes) {
@@ -80,6 +85,7 @@ public class GUI extends JFrame {
 		Titulo.setFont(new Font("Tw Cen MT", Font.PLAIN, 15));
 		Titulo.setBounds(128, 30, 164, 24);
 		contentPane.add(Titulo);
+		
 		
 		JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setHorizontalAlignment(SwingConstants.LEFT);
@@ -174,6 +180,13 @@ public class GUI extends JFrame {
 		JToolBar toolBar = new JToolBar();
 		toolBar.setBounds(0, 0, 198, 35);
 		contentPane.add(toolBar);
+		
+		modeloLista = new DefaultListModel<>();
+		listaHistorial = new JList<>(modeloLista);
+		JScrollPane scrollHistorial = new JScrollPane(listaHistorial);
+		scrollHistorial.setBounds(10, 230, 380, 200);
+		contentPane.add(scrollHistorial);
+		
 		
 		JButton btnNewButton_1 = new JButton("Historial");
 		btnNewButton_1.addActionListener(new ActionListener() {
