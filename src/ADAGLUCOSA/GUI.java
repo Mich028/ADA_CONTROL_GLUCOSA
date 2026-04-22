@@ -175,6 +175,8 @@ public class GUI extends JFrame {
 		toolBar.setBounds(0, 0, 198, 35);
 		contentPane.add(toolBar);
 		
+		
+		
 		JButton btnNewButton_1 = new JButton("Historial");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -186,6 +188,7 @@ public class GUI extends JFrame {
 		JButton btnNewButton_1_1 = new JButton("Busqueda");
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		btnNewButton_1_1.setIcon(new ImageIcon("C:\\Users\\miche\\Downloads\\Busqueda.png"));
