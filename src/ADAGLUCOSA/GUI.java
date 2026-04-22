@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
@@ -15,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JToolBar;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
 
@@ -26,6 +29,24 @@ public class GUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
+	
+	private int convertirMes(String mes) {
+        switch (mes) {
+            case "Enero": return 1;
+            case "Febrero": return 2;
+            case "Marzo": return 3;
+            case "Abril": return 4;
+            case "Mayo": return 5;
+            case "Junio": return 6;
+            case "Julio": return 7;
+            case "Agosto": return 8;
+            case "Septiembre": return 9;
+            case "Octubre": return 10;
+            case "Noviembre": return 11;
+            case "Diciembre": return 12;
+            default: return 1;
+        }
+    }
 
 	/**
 	 * Launch the application.
@@ -121,7 +142,30 @@ public class GUI extends JFrame {
 		JButton btnNewButton = new JButton("Registrar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String Nombre = textField.getText();
+			//	String Valor = textField_1.getText();
+				int Valor = Integer.parseInt(textField_1.getText());
+				int Dia = Integer.parseInt(comboBox.getSelectedItem().toString());
+				String Mes = comboBox_1.getSelectedItem().toString();
+				int mes = convertirMes(Mes);
+				int Año = Integer.parseInt(comboBox_1_1.getSelectedItem().toString());
+				LocalDate Fecha = LocalDate.of(Año, mes, Dia);
+				
+				Persona persona = personas.get(Nombre);
+			    if (persona == null) {
+			        persona = new Persona(Nombre);
+			        personas.put(Nombre, persona);
+			    }
+			    
+			    Registro registro = new Registro (Fecha, Valor);
+			    persona.AgregarRegistro(registro);
+			    
+			    JOptionPane.showMessageDialog(null, "Registro guardado:\n" + "Persona: " + Nombre + "\n" + "Valor: " + Valor + " mg/dL\n" +"Fecha: " + Fecha);
+			
+		
+				
 			}
+			
 		});
 		btnNewButton.setIcon(new ImageIcon("C:\\Users\\miche\\Downloads\\registrar.png"));
 		btnNewButton.setBounds(128, 193, 154, 22);
