@@ -38,5 +38,13 @@ public class Persona {
 	public void setRegistros(ArrayList<Registro> registros) {
 		Registros = registros;
 	}
-	
+	public String obtenerHistorial() {
+	    String texto = "";
+
+	    for (Registro r : Registros) {
+	        texto += r.toString() + "\n";
+	    }
+
+	    return texto;
+	}
 }
