@@ -188,6 +188,26 @@ public class GUI extends JFrame {
 		JButton btnNewButton_1_1 = new JButton("Busqueda");
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				 String nombre = JOptionPane.showInputDialog("Ingresa el nombre:");
+
+				    if (nombre == null || nombre.isEmpty()) {
+				        JOptionPane.showMessageDialog(null, "Nombre vacío");
+				        return;
+				    }
+
+				    Persona persona = personas.get(nombre);
+
+				    if (persona != null) {
+				        String historial = persona.obtenerHistorial();
+
+				        if (historial.isEmpty()) {
+				            JOptionPane.showMessageDialog(null, "No hay registros para " + nombre);
+				        } else {
+				            JOptionPane.showMessageDialog(null, "Historial de " + nombre + ":\n\n" + historial);
+				        }
+				    } else {
+				        JOptionPane.showMessageDialog(null, "La persona no existe");
+				    }
 				
 			}
 		});
