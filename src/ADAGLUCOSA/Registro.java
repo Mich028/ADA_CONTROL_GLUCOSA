@@ -27,6 +27,11 @@ public class Registro {
 	public void setValor(int valor) {
 		Valor = valor;
 	}
+
+	@Override
+	public String toString() {
+		 return "Fecha: " + Fecha + " | Glucosa: " + Valor + " mg/dL";
+	}
 	
 
 }
